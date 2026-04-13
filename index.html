@@ -225,39 +225,29 @@
     </a>
 
     <script>
-        const shopNowBtn = document.getElementById('shopNowBtn');
-        const offersContainer = document.getElementById('offersContainer');
-        const shopBtnText = document.getElementById('shopBtnText');
-        const shopBtnIcon = document.getElementById('shopBtnIcon');
-        let isOpen = false;
+const shopNowBtn = document.getElementById('earnnowBtn');
+const offersContainer = document.getElementById('offersContainer');
+const shopBtnIcon = document.getElementById('EarnBtnIcon');
 
-        shopNowBtn.addEventListener('click', () => {
-            isOpen = !isOpen;
-            
-            if (isOpen) {
-                offersContainer.style.maxHeight = offersContainer.scrollHeight + 'px';
-                offersContainer.style.opacity = '1';
-                offersContainer.classList.add('mt-2');
-                shopBtnText.textContent = 'Hide Offers';
-                shopBtnIcon.style.transform = 'rotate(180deg)';
-                
-                setTimeout(() => {
-                    offersContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }, 150);
-            } else {
-                offersContainer.style.maxHeight = '0px';
-                offersContainer.style.opacity = '0';
-                shopBtnText.textContent = 'Shop Now';
-                shopBtnIcon.style.transform = 'rotate(0deg)';
-            }
-        });
+let isOpen = false;
 
-        // Close on outside click for mobile
-        document.addEventListener('click', (e) => {
-            if (isOpen && !shopNowBtn.contains(e.target) && !offersContainer.contains(e.target)) {
-                // optional: keep open
-            }
-        });
-    </script>
+shopNowBtn.addEventListener('click', () => {
+    isOpen = !isOpen;
+
+    if (isOpen) {
+        offersContainer.style.maxHeight = offersContainer.scrollHeight + "px";
+        offersContainer.style.opacity = "1";
+        offersContainer.style.marginTop = "10px";
+
+        shopBtnIcon.style.transform = "rotate(180deg)";
+    } else {
+        offersContainer.style.maxHeight = "0px";
+        offersContainer.style.opacity = "0";
+
+        shopBtnIcon.style.transform = "rotate(0deg)";
+    }
+});
+</script>
+
 </body>
 </html>
